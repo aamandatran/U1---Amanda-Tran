@@ -1,0 +1,40 @@
+main>div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 4vh;
+}
+
+main>div>h1 {
+    font-weight: bold;
+    font-size: 6vh;
+}
+
+main>div>a {
+    font-size: 3vh;
+    color: black;
+}
+
+label {
+    text-align: left;
+    font-size: 3vh;
+}
+
+input {
+    padding: 1vh 0;
+}
+
+#input_field {
+    display: flex;
+    flex-direction: column;
+}
+
+#input_field>input:first-of-type {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 2vh 0;
+    margin-bottom: 25px;
+    font-size: 3vh;
+}

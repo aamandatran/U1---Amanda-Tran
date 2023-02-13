@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url("../fonts/RobotoCondensed-Regular.ttf");
+}
+
+* {
+    font-family: "Roboto Condensed";
+}
+
+body {
+    margin: 0;
+}
+
+#wrapper {
+    padding: 3vh;
+    border-radius: 3vh;
+    background-color: rgb(154, 182, 154);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 3vh;
+}
+
+#logo {
+    background-image: url("../media/logo.png");
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
