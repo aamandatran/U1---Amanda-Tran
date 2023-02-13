@@ -12,9 +12,11 @@ body {
 }
 
 #wrapper {
+    background-color: rgb(154, 182, 154);
+    transition-property: background-color;
+    transition-duration: 500ms;
     padding: 3vh;
     border-radius: 3vh;
-    background-color: rgb(154, 182, 154);
     height: 100vh;
     display: flex;
     flex-direction: column;
