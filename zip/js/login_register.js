@@ -1,21 +1,20 @@
-login()
+"use strict";
 
-function login() {
-    const login_dom = document.createElement("div");
-    login_dom.innerHTML = `
-    <h1 id="login_register">LOGIN</h1>
+function login_register() {
+    const login = document.querySelector("#login");
+    const register = document.querySelector("#register");
 
-    <div id="input_field">
-        <label for="username">User Name:</label>
-        <input type="text">
-        <label for="password">Password:</label>
-        <input type="text">
-     </div>
+    document.querySelector("#portal_register").addEventListener("click", e => {
+        login.classList.add("hidden");
+        register.classList.remove("hidden");
+    });
 
-
-    <div id="prompt">Let the magic start!</div>
-    <button>Login</button>
-    <a href="#">New to this? Register for free</a>
-    `;
-    document.querySelector("main").append(login_dom);
+    document.querySelector("#portal_login").addEventListener("click", e => {
+        register.classList.add("hidden");
+        login.classList.remove("hidden");
+    });
 }
+
+
+
+

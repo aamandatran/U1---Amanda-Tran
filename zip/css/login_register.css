@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 main>div {
     display: flex;
     flex-direction: column;
@@ -10,9 +14,11 @@ main>div>h1 {
     font-size: 6vh;
 }
 
-main>div>a {
+main>div>.portal {
     font-size: 3vh;
+    text-decoration: underline;
     color: black;
+    cursor: pointer;
 }
 
 label {
@@ -21,7 +27,8 @@ label {
 }
 
 input {
-    padding: 1vh 0;
+    padding: 1vh 10px;
+    font-size: 3vh;
 }
 
 #input_field {

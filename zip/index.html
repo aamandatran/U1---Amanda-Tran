@@ -18,7 +18,39 @@
             <div>Dog Breed Quiz</div>
         </header>
 
-        <main></main>
+        <main>
+            <div id="login">
+                <h1 id="login_register">LOGIN</h1>
+
+                <div id="input_field">
+                    <label for="username">User Name:</label>
+                    <input type="text">
+                    <label for="password">Password:</label>
+                    <input type="password">
+                </div>
+
+
+                <div id="prompt">Let the magic start!</div>
+                <button>Login</button>
+                <div id="portal_register" class="portal">New to this? Register for free</div>
+            </div>
+
+            <div id="register" class="hidden">
+                <h1 id="login_register">REGISTER</h1>
+
+                <div id="input_field">
+                    <label for="username">User Name:</label>
+                    <input type="text">
+                    <label for="password">Password:</label>
+                    <input type="password">
+                </div>
+
+
+                <div id="prompt">Ready when you are...</div>
+                <button>Register</button>
+                <div id="portal_login" class="portal">Already have an account?, Go to login</div>
+            </div>
+        </main>
 
         <footer>
             <div>The Dog Breed Quiz is made possible thanks to the free API by <a href="#">DOG CEO Zine</a></div>
@@ -26,10 +58,10 @@
     </div>
 
     <script src="./js/data.js"></script>
-    <script src="index.js"></script>
     <script src="./js/login_register.js"></script>
     <script src="./js/server_connection.js"></script>
     <script src="./js/quiz.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
