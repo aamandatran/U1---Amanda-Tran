@@ -5,10 +5,13 @@
 
 * {
     font-family: "Roboto Condensed";
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
+    position: relative;
+    background-color: black;
 }
 
 #wrapper {

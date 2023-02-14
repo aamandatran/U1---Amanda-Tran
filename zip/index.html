@@ -22,39 +22,47 @@
             <div id="login">
                 <h1 id="login_register">LOGIN</h1>
 
-                <div id="input_field">
+                <div id="input_field_login" class="input_field">
                     <label for="username">User Name:</label>
-                    <input type="text">
+                    <input name='username' type="text">
                     <label for="password">Password:</label>
-                    <input type="password">
+                    <input name='password' type="password">
+
+                    <div id="wrong" class="hidden">Wrong user name or password.</div>
                 </div>
 
 
                 <div id="prompt">Let the magic start!</div>
-                <button>Login</button>
+                <button class="login">Login</button>
                 <div id="portal_register" class="portal">New to this? Register for free</div>
             </div>
 
             <div id="register" class="hidden">
                 <h1 id="login_register">REGISTER</h1>
 
-                <div id="input_field">
+                <div id="input_field_register" class="input_field">
                     <label for="username">User Name:</label>
-                    <input type="text">
+                    <input name='username' type="text">
                     <label for="password">Password:</label>
-                    <input type="password">
+                    <input name='password' type="password">
                 </div>
 
 
                 <div id="prompt">Ready when you are...</div>
-                <button>Register</button>
+                <button class="register">Register</button>
                 <div id="portal_login" class="portal">Already have an account?, Go to login</div>
+            </div>
+
+            <div class="feedback hidden">
+                <p id="feedback_text">Connecting Server...</p>
+                <button class="hidden">CLOSE</button>
             </div>
         </main>
 
         <footer>
             <div>The Dog Breed Quiz is made possible thanks to the free API by <a href="#">DOG CEO Zine</a></div>
         </footer>
+        <div class="overlay hidden"></div>
     </div>
 
     <script src="./js/data.js"></script>
