@@ -1,0 +1,49 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    height: 75vh;
+}
+
+section>nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7vh;
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 1vh;
+}
+
+section>nav>button {
+    height: 30px;
+    margin: 15px 0;
+    padding: 0 5px;
+
+    display: flex;
+    align-items: center;
+}
+
+#dog_image {
+    background-image: url("../media/logo.png");
+    width: 90vw;
+    height: 45vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#answer_alternatives {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.5vh;
+}
+
+div.alternative {
+    background-color: white;
+    padding: 1.5vh 0;
+    text-align: center;
+    border-radius: 0.5vh;
+    border: 1px solid grey;
+}

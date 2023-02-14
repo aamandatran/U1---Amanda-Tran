@@ -89,6 +89,25 @@ async function login_user() {
     const GET_rqst = new Request(prefix + `?action=check_credentials&user_name=${username_value}&password=${password_value}`);
 
     const resource = await send_request(GET_rqst);
-    console.log(resource);
+
+    if (resource === undefined) {
+        console.log(resource);
+    } else {
+        document.getElementById("login_and_register").classList.add("hidden");
+        const dog_quiz = document.querySelector("#dog_quiz");
+        dog_quiz.classList.remove("hidden");
+        overlay.classList.add("hidden");
+        feedback_dom.classList.add("hidden");
+
+        document.querySelector("#input_field_login > input[name='password']").value = "";
+
+        const display_username = document.querySelector(".username_display");
+        display_username.textContent = username_value;
+
+        document.querySelector(".logout").addEventListener("click", e => {
+            document.getElementById("login_and_register").classList.remove("hidden");
+            dog_quiz.classList.add("hidden");
+        });
+    }
 
 }
