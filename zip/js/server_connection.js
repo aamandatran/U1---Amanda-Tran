@@ -27,7 +27,7 @@ function connecting_feedback(status) {
         wrong_message.classList.remove("hidden");
         feedback_dom.classList.add("hidden");
         overlay.classList.add("hidden");
-        document.querySelector("button.register").removeAttribute("disabled");
+        document.querySelector("button.login").removeAttribute("disabled");
 
     } else {
         console.log(status);
@@ -42,8 +42,8 @@ function connecting_feedback(status) {
             case 418:
                 message = "The server thinks it's not a teapot!";
                 break;
-            case 404:
-                another_feedback();
+            case 400:
+                message = "User name or password is missing. Please try again.";
 
         }
 
@@ -60,6 +60,7 @@ function connecting_feedback(status) {
             overlay.classList.add("hidden");
             document.querySelector(".feedback > p#feedback_text").innerHTML = "Connecting Server...";
             document.querySelector("button.register").removeAttribute("disabled");
+            document.querySelector("button.login").removeAttribute("disabled");
         });
     }
 

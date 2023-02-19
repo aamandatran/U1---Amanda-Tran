@@ -1,37 +1,48 @@
 "use strict";
 
+const login_and_register_main = document.getElementById("login_and_register");
+const dog_quiz_section = document.getElementById("dog_quiz");
+
+if (localStorage.getItem('display_dog_quiz_refresh') === 'true') {
+    login_and_register_main.classList.add("hidden");
+    dog_quiz_section.classList.remove("hidden");
+} else {
+    login_and_register_main.classList.remove("hidden");
+    dog_quiz_section.classList.add("hidden");
+}
+
 function login_register() {
     const login = document.querySelector("#login");
     const register = document.querySelector("#register");
 
-    document.querySelector("#portal_register").addEventListener("click", e => {
+    document.querySelector("#portal_register").addEventListener("click", () => {
         login.classList.add("hidden");
         register.classList.remove("hidden");
-        document.getElementById("wrapper").style.backgroundColor = "rgb(110, 134, 110)";
+        document.getElementById("wrapper").style.backgroundColor = "rgb(163, 150, 175)";
         document.querySelector("#input_field_register > input[name='username']").value = "";
         document.querySelector("#input_field_register > input[name='password']").value = "";
         const wrong_message = document.querySelector("div #wrong");
         wrong_message.classList.add("hidden");
     });
 
-    document.querySelector("#portal_login").addEventListener("click", e => {
+    document.querySelector("#portal_login").addEventListener("click", () => {
         register.classList.add("hidden");
         login.classList.remove("hidden");
-        document.getElementById("wrapper").style.backgroundColor = "rgb(154, 182, 154)";
+        document.getElementById("wrapper").style.backgroundColor = "rgb(204, 189, 219)";
         document.querySelector("#input_field_login > input[name='username']").value = "";
         document.querySelector("#input_field_login > input[name='password']").value = "";
     });
 
-    document.querySelector("button.register").addEventListener("click", e => {
+    document.querySelector("button.register").addEventListener("click", () => {
         console.log(e);
         register_user();
     });
 
-    document.querySelector("button.login").addEventListener("click", e => {
-        console.log(e);
+    document.querySelector("button.login").addEventListener("click", () => {
+        localStorage.setItem('display_dog_quiz_refresh', 'true');
+        login_user();
         const wrong_message = document.querySelector("div #wrong");
         wrong_message.classList.add("hidden");
-        login_user();
     });
 }
 
@@ -74,8 +85,17 @@ async function register_user() {
     }
 }
 
+document.querySelector("button.logout").addEventListener("click", () => {
+    localStorage.setItem('display_dog_quiz_refresh', 'false');
+    login_and_register_main.classList.remove("hidden");
+    dog_quiz_section.classList.add("hidden");
+    document.querySelector("button.login").removeAttribute("disabled");
+    document.getElementById("wrapper").style.backgroundColor = "rgb(204, 189, 219)";
+});
+
 async function login_user() {
-    document.querySelector("button.register").setAttribute("disabled", true);
+    document.querySelector("button.login").setAttribute("disabled", true);
+
     const feedback_dom = document.querySelector("div.feedback");
     feedback_dom.classList.remove("hidden");
 
@@ -87,27 +107,22 @@ async function login_user() {
     const password_value = document.querySelector("#input_field_login > input[name='password']").value;
 
     const GET_rqst = new Request(prefix + `?action=check_credentials&user_name=${username_value}&password=${password_value}`);
-
     const resource = await send_request(GET_rqst);
 
     if (resource === undefined) {
         console.log(resource);
     } else {
-        document.getElementById("login_and_register").classList.add("hidden");
-        const dog_quiz = document.querySelector("#dog_quiz");
-        dog_quiz.classList.remove("hidden");
+        login_and_register_main.classList.add("hidden");
+        dog_quiz_section.classList.remove("hidden");
         overlay.classList.add("hidden");
         feedback_dom.classList.add("hidden");
+        document.getElementById("wrapper").style.backgroundColor = "rgb(175, 157, 194)";
 
         document.querySelector("#input_field_login > input[name='password']").value = "";
+        document.querySelector("#input_field_login > input[name='username']").value = "";
 
         const display_username = document.querySelector(".username_display");
         display_username.textContent = username_value;
-
-        document.querySelector(".logout").addEventListener("click", e => {
-            document.getElementById("login_and_register").classList.remove("hidden");
-            dog_quiz.classList.add("hidden");
-        });
     }
 
 }

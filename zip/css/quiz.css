@@ -44,6 +44,10 @@ div.alternative {
     background-color: white;
     padding: 1.5vh 0;
     text-align: center;
-    border-radius: 0.5vh;
-    border: 1px solid grey;
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+
+div.alternative:hover {
+    background-color: rgb(214, 212, 212);
 }

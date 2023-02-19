@@ -15,7 +15,7 @@ body {
 }
 
 #wrapper {
-    background-color: rgb(154, 182, 154);
+    background-color: rgb(204, 189, 219);
     transition-property: background-color;
     transition-duration: 500ms;
     padding: 3vh;
