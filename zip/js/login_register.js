@@ -11,6 +11,15 @@ if (localStorage.getItem('display_dog_quiz_refresh') === 'true') {
     dog_quiz_section.classList.add("hidden");
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const display_username = document.querySelector('.username_display');
+    const stored_username = localStorage.getItem('username');
+    if (stored_username) {
+        display_username.textContent = stored_username;
+    }
+}
+)
+
 function login_register() {
     const login = document.querySelector("#login");
     const register = document.querySelector("#register");
@@ -123,6 +132,7 @@ async function login_user() {
 
         const display_username = document.querySelector(".username_display");
         display_username.textContent = username_value;
+        localStorage.setItem('username', username_value);
     }
 
 }
