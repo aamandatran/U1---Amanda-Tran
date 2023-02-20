@@ -6,16 +6,19 @@ const dog_quiz_section = document.getElementById("dog_quiz");
 if (localStorage.getItem('display_dog_quiz_refresh') === 'true') {
     login_and_register_main.classList.add("hidden");
     dog_quiz_section.classList.remove("hidden");
-} else {
-    login_and_register_main.classList.remove("hidden");
-    dog_quiz_section.classList.add("hidden");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const display_username = document.querySelector('.username_display');
     const stored_username = localStorage.getItem('username');
+    const stored_background_color = localStorage.getItem('background_color');
     if (stored_username) {
         display_username.textContent = stored_username;
+        document.getElementById("wrapper").style.backgroundColor = stored_background_color;
+    }
+
+    if (localStorage.getItem('display_dog_quiz_refresh') === 'true') {
+        get_random_dog_image()
     }
 }
 )
@@ -43,7 +46,6 @@ function login_register() {
     });
 
     document.querySelector("button.register").addEventListener("click", () => {
-        console.log(e);
         register_user();
     });
 
@@ -125,7 +127,8 @@ async function login_user() {
         dog_quiz_section.classList.remove("hidden");
         overlay.classList.add("hidden");
         feedback_dom.classList.add("hidden");
-        document.getElementById("wrapper").style.backgroundColor = "rgb(175, 157, 194)";
+        const background_color = document.getElementById("wrapper").style.backgroundColor = "rgb(175, 157, 194)";
+        localStorage.setItem('background_color', background_color);
 
         document.querySelector("#input_field_login > input[name='password']").value = "";
         document.querySelector("#input_field_login > input[name='username']").value = "";
@@ -133,6 +136,7 @@ async function login_user() {
         const display_username = document.querySelector(".username_display");
         display_username.textContent = username_value;
         localStorage.setItem('username', username_value);
+        get_random_dog_image()
     }
 
 }

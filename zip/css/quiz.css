@@ -1,8 +1,6 @@
 section {
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
-    height: 75vh;
+    width: 88vw;
+    margin: auto auto;
 }
 
 section>nav {
@@ -13,6 +11,7 @@ section>nav {
     background-color: white;
     padding: 0 10px;
     border-radius: 1vh;
+    margin-top: 2vh;
 }
 
 section>nav>button {
@@ -24,23 +23,24 @@ section>nav>button {
     align-items: center;
 }
 
-#dog_image {
-    background-image: url("../media/logo.png");
-    width: 90vw;
-    height: 45vh;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+#quiz {
+    margin-top: 20px;
 }
 
-#answer_alternatives {
+img {
+    border-radius: 4vh;
+    width: 100%;
+}
+
+#alternatives {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1.5vh;
+    gap: 0.5vh;
+    margin-bottom: 4vh;
 }
 
 div.alternative {
+    height: fit-content;
     background-color: white;
     padding: 1.5vh 0;
     text-align: center;
@@ -50,4 +50,33 @@ div.alternative {
 
 div.alternative:hover {
     background-color: rgb(214, 212, 212);
+}
+
+.wrong_or_correct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    padding: 13vh 0;
+    border-radius: 3vh;
+    font-size: 3vh;
+    text-align: center;
+
+
+    position: fixed;
+    top: 40vh;
+    bottom: 60vh;
+    right: 5vw;
+    left: 5vw;
+}
+
+.wrong_or_correct>p {
+    font-size: 5vh;
+}
+
+.wrong_or_correct>button {
+    width: 250px;
+    font-size: 3vh;
 }
