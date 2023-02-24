@@ -1,9 +1,4 @@
-section {
-    width: 88vw;
-    margin: auto auto;
-}
-
-section>nav {
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,7 +9,7 @@ section>nav {
     margin-top: 2vh;
 }
 
-section>nav>button {
+nav>button {
     height: 30px;
     margin: 15px 0;
     padding: 0 5px;
@@ -23,8 +18,9 @@ section>nav>button {
     align-items: center;
 }
 
-#quiz {
-    margin-top: 20px;
+#dog_quiz {
+    margin-top: 5vh;
+    height: inherit;
 }
 
 img {
@@ -40,9 +36,11 @@ img {
 }
 
 div.alternative {
-    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-    padding: 1.5vh 0;
+    padding: 1.5vh;
     text-align: center;
     border-radius: 5px;
     border: 2px solid grey;

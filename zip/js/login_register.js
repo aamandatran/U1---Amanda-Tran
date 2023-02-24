@@ -2,23 +2,26 @@
 
 const login_and_register_main = document.getElementById("login_and_register");
 const dog_quiz_section = document.getElementById("dog_quiz");
+const logout_nav = document.getElementById("logout_dom");
 
 if (localStorage.getItem('display_dog_quiz_refresh') === 'true') {
     login_and_register_main.classList.add("hidden");
     dog_quiz_section.classList.remove("hidden");
+    logout_nav.classList.remove("hidden");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const display_username = document.querySelector('.username_display');
     const stored_username = localStorage.getItem('username');
-    const stored_background_color = localStorage.getItem('background_color');
     if (stored_username) {
         display_username.textContent = stored_username;
-        document.getElementById("wrapper").style.backgroundColor = stored_background_color;
     }
 
     if (localStorage.getItem('display_dog_quiz_refresh') === 'true') {
         get_random_dog_image()
+
+        const stored_background_color = localStorage.getItem('background_color');
+        document.getElementById("wrapper").style.backgroundColor = stored_background_color;
     }
 }
 )
@@ -100,6 +103,7 @@ document.querySelector("button.logout").addEventListener("click", () => {
     localStorage.setItem('display_dog_quiz_refresh', 'false');
     login_and_register_main.classList.remove("hidden");
     dog_quiz_section.classList.add("hidden");
+    logout_nav.classList.add("hidden");
     document.querySelector("button.login").removeAttribute("disabled");
     document.getElementById("wrapper").style.backgroundColor = "rgb(204, 189, 219)";
 });
@@ -125,6 +129,7 @@ async function login_user() {
     } else {
         login_and_register_main.classList.add("hidden");
         dog_quiz_section.classList.remove("hidden");
+        logout_nav.classList.remove("hidden");
         overlay.classList.add("hidden");
         feedback_dom.classList.add("hidden");
         const background_color = document.getElementById("wrapper").style.backgroundColor = "rgb(175, 157, 194)";

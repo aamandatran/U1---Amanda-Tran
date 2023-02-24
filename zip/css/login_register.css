@@ -17,6 +17,11 @@ div.feedback.hidden {
     z-index: 0;
 }
 
+main {
+    flex-grow: 1;
+    margin-top: 50px;
+}
+
 main>div {
     display: flex;
     flex-direction: column;
