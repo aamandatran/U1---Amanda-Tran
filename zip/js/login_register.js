@@ -72,6 +72,7 @@ async function register_user() {
     document.querySelector("button.register").setAttribute("disabled", true);
 
     const feedback_dom = document.querySelector("div.feedback");
+    document.querySelector(".feedback > p#feedback_text").innerHTML = "Connecting Server...";
     feedback_dom.classList.remove("hidden");
 
     const overlay = document.querySelector("div.overlay");
@@ -112,6 +113,7 @@ async function login_user() {
     document.querySelector("button.login").setAttribute("disabled", true);
 
     const feedback_dom = document.querySelector("div.feedback");
+    document.querySelector(".feedback > p#feedback_text").innerHTML = "Connecting Server...";
     feedback_dom.classList.remove("hidden");
 
     const overlay = document.querySelector("div.overlay");

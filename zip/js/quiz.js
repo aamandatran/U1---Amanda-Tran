@@ -1,6 +1,8 @@
 //https://dog.ceo/api/breed/${ALL_BREEDS[i].url}/images/random
 
 let current_index = 0;
+const random_array = ALL_BREEDS.sort(() => Math.random() < 0.5 ? -1 : 1);
+
 
 async function get_random_dog_image() {
     const feedback_dom = document.querySelector("div.feedback");
@@ -13,7 +15,7 @@ async function get_random_dog_image() {
     current_index;
     console.log(current_index);
 
-    const GET_image = new Request(`https://dog.ceo/api/breed/${ALL_BREEDS[current_index].url}/images/random`);
+    const GET_image = new Request(`https://dog.ceo/api/breed/${random_array[current_index].url}/images/random`);
     const resource = await send_request(GET_image);
     console.log(resource);
     overlay.classList.add("hidden");
