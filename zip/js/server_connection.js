@@ -1,36 +1,28 @@
 "use strict";
 
+const overlay = document.querySelector("div.overlay");
+const feedback_dom = document.querySelector("div.feedback");
+const feedback_text = document.querySelector(".feedback > p#feedback_text");
+const wrong_message = document.querySelector("div #wrong");
+
 async function send_request(GET_or_POST) {
     const response = await fetch(GET_or_POST);
     console.log(response);
 
-    let _resource;
+    connecting_feedback(response.status);
 
-    if (!response.ok) {
-        connecting_feedback(response.status);
-    } else {
-        const resource = await response.json();
-        console.log(resource);
-        _resource = resource;
-    }
-
-    return _resource;
-
+    const resource = await response.json();
+    return resource;
 }
 
 function connecting_feedback(status) {
-    const feedback_dom = document.querySelector("div.feedback");
-    const overlay = document.querySelector("div.overlay");
+    console.log(status);
 
     if (status === 404) {
-        const wrong_message = document.querySelector("div #wrong");
         wrong_message.classList.remove("hidden");
         feedback_dom.classList.add("hidden");
         overlay.classList.add("hidden");
-        document.querySelector("button.login").removeAttribute("disabled");
-
     } else {
-        console.log(status);
         let message = "";
         switch (status) {
             case 200:
@@ -44,26 +36,20 @@ function connecting_feedback(status) {
                 break;
             case 400:
                 message = "User name or password is missing. Please try again.";
-
         }
 
-        document.querySelector(".feedback > p#feedback_text").innerHTML = message;
+        feedback_text.innerHTML = message;
         const button_dom = document.querySelector("div.feedback > button");
         button_dom.classList.remove("hidden");
         feedback_dom.style.padding = "12vh 0";
-        console.log(message);
-        document.querySelector(".feedback > button").addEventListener("click", e => {
+        button_dom.addEventListener("click", e => {
             console.log(e);
             feedback_dom.classList.add("hidden");
             feedback_dom.style.padding = "5vh 0";
             button_dom.classList.add("hidden");
             overlay.classList.add("hidden");
-            document.querySelector(".feedback > p#feedback_text").innerHTML = "Connecting Server...";
-            document.querySelector("button.register").removeAttribute("disabled");
-            document.querySelector("button.login").removeAttribute("disabled");
+            feedback_text.innerHTML = "Connecting Server...";
         });
     }
-
-
 }
 

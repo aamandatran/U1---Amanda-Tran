@@ -1,21 +1,21 @@
 nav {
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     height: 7vh;
-    background-color: white;
     padding: 0 10px;
     border-radius: 1vh;
     margin-top: 2vh;
 }
 
 nav>button {
-    height: 30px;
-    margin: 15px 0;
-    padding: 0 5px;
-
     display: flex;
     align-items: center;
+
+    margin: 15px 0;
+    padding: 0 5px;
 }
 
 #dog_quiz {
@@ -36,12 +36,12 @@ img {
 }
 
 div.alternative {
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+
     padding: 1.5vh;
-    text-align: center;
     border-radius: 5px;
     border: 2px solid grey;
 }
@@ -51,17 +51,14 @@ div.alternative:hover {
 }
 
 .wrong_or_correct {
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    background-color: white;
     padding: 13vh 0;
     border-radius: 3vh;
-    font-size: 3vh;
-    text-align: center;
-
 
     position: fixed;
     top: 40vh;
@@ -76,5 +73,4 @@ div.alternative:hover {
 
 .wrong_or_correct>button {
     width: 250px;
-    font-size: 3vh;
 }

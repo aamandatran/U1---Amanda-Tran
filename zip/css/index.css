@@ -11,17 +11,19 @@
 body {
     height: 100vh;
     margin: 0;
-    position: relative;
     background-color: black;
+
+    position: relative;
 }
 
 #wrapper {
+    height: inherit;
+    padding: 3vh;
+    border-radius: 3vh;
+
     background-color: rgb(204, 189, 219);
     transition-property: background-color;
     transition-duration: 500ms;
-    padding: 3vh;
-    height: inherit;
-    border-radius: 3vh;
 
     display: flex;
     flex-direction: column;
@@ -32,16 +34,16 @@ body {
 header {
     display: flex;
     justify-content: space-between;
+
     font-size: 3vh;
 }
 
 #logo {
     background-image: url("../media/logo.png");
+    background-size: contain;
+
     width: 40px;
     height: 40px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .hidden {

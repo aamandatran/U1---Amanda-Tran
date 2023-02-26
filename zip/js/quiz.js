@@ -1,16 +1,14 @@
-//https://dog.ceo/api/breed/${ALL_BREEDS[i].url}/images/random
+"use strict";
 
 let current_index = 0;
 const random_array = ALL_BREEDS.sort(() => Math.random() < 0.5 ? -1 : 1);
 
-
 async function get_random_dog_image() {
-    const feedback_dom = document.querySelector("div.feedback");
-    const overlay = document.querySelector("div.overlay");
-
     overlay.classList.remove("hidden");
     feedback_dom.classList.remove("hidden");
-    document.querySelector(".feedback > p#feedback_text").innerHTML = "Getting random image...";
+    feedback_text.innerHTML = "Getting random image...";
+    const button_dom = document.querySelector("div.feedback > button");
+    button_dom.classList.add("hidden");
 
     current_index;
     console.log(current_index);
@@ -56,7 +54,6 @@ async function get_random_dog_image() {
 
 
 function select_check_answer(e) {
-    const overlay = document.querySelector("div.overlay");
     overlay.classList.remove("hidden");
     const wrong_right = document.createElement("div");
     wrong_right.classList.add("wrong_or_correct");
@@ -65,7 +62,6 @@ function select_check_answer(e) {
         <button id="next_quiz">ONE MORE</button>
     `;
     document.querySelector("#wrapper").append(wrong_right);
-    console.log(e.target);
 
     if (e.target.classList.contains("correct")) {
         console.log("yes");
@@ -82,6 +78,6 @@ function select_check_answer(e) {
         wrong_right.remove();
         current_index++
         get_random_dog_image();
-    });
+    })
 }
 
