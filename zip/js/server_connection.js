@@ -5,24 +5,28 @@ const feedback_dom = document.querySelector("div.feedback");
 const feedback_text = document.querySelector(".feedback > p#feedback_text");
 const wrong_message = document.querySelector("div #wrong");
 
+//FETCH
 async function send_request(GET_or_POST) {
     const response = await fetch(GET_or_POST);
     console.log(response);
 
-    connecting_feedback(response.status);
+    feedback(response.status);
 
     const resource = await response.json();
     return resource;
 }
 
-function connecting_feedback(status) {
+//RETURNS FEEDBACK DEPENDING ON STATUS
+function feedback(status) {
     console.log(status);
 
+    //404 = NOT FOUND, SHOW DIV #WRONG FOR WRONG UN AND PW
     if (status === 404) {
         wrong_message.classList.remove("hidden");
         feedback_dom.classList.add("hidden");
         overlay.classList.add("hidden");
     } else {
+        //DIFFERENT MESSAGE DEPENDING ON STATUS
         let message = "";
         switch (status) {
             case 200:
@@ -42,8 +46,9 @@ function connecting_feedback(status) {
         const button_dom = document.querySelector("div.feedback > button");
         button_dom.classList.remove("hidden");
         feedback_dom.style.padding = "12vh 0";
-        button_dom.addEventListener("click", e => {
-            console.log(e);
+
+        //EVENT "CLICK" TO HIDE FEEDBACK
+        button_dom.addEventListener("click", () => {
             feedback_dom.classList.add("hidden");
             feedback_dom.style.padding = "5vh 0";
             button_dom.classList.add("hidden");
